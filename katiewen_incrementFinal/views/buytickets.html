@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katie Wen">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse website redesign project">
+    <title>Buy Tickets — MonoMuse</title>
+</head>
+<body onload="addYear()">
+    <div class="container">
+
+        <header class="header">
+            <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+        </header>
+
+        <nav class="nav_bar">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="buytickets.html">Buy Tickets</a>
+                <a href="membership.html">Membership</a>
+            </div>
+        </nav>
+
+        <main class="main">
+            <h2>Buy Tickets</h2>
+
+            <div class="ticket-layout">
+
+                <!-- left ticket info and hours  -->
+                <div>
+                    <p class="section-label">Admission Prices</p>
+                    <table>
+                        <tr>
+                            <th>Ticket Type</th>
+                            <th>Price</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>General</td>
+                            <td>$18</td>
+                            <td>Ages 18+</td>
+                        </tr>
+                        <tr>
+                            <td>Student</td>
+                            <td>$18</td>
+                            <td>Valid student ID required</td>
+                        </tr>
+                        <tr>
+                            <td>Member</td>
+                            <td>$18</td>
+                            <td>Member ID required</td>
+                        </tr>
+                        <tr>
+                            <td>Child</td>
+                            <td>Free</td>
+                            <td>Under 18 with adult</td>
+                        </tr>
+                    </table>
+
+                    <p class="section-label" style="margin-top: 32px;">Museum Hours</p>
+                    <table>
+                        <tr>
+                            <th>Day</th>
+                            <th>Hours</th>
+                        </tr>
+                        <tr>
+                            <td>Monday – Friday</td>
+                            <td>9:00 AM – 6:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>9:00 AM – 8:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>10:00 AM – 5:00 PM</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- right order form -->
+                <div>
+                    <p class="section-label">Your Order</p>
+
+                    <!-- visit date -->
+                    <div class="form-group" id="group-date">
+                        <label for="visit-date">Visit Date</label>
+                        <input type="date" id="visit-date">
+                        <span class="error-msg">Please select a visit date.</span>
+                    </div>
+
+                    <!-- ticket type -->
+                    <div class="form-group" id="group-type">
+                        <label for="ticket-type">Ticket Type</label>
+                        <select id="ticket-type" onchange="updatePrice()">
+                            <option value="">Select a ticket type</option>
+                            <option value="General">General</option>
+                            <option value="Student">Student</option>
+                            <option value="Member">Member</option>
+                        </select>
+                        <span class="error-msg">Please select a ticket type.</span>
+                    </div>
+
+                    <!-- quantity -->
+                    <div class="form-group" id="group-quantity">
+                        <label for="quantity">Quantity (1–10)</label>
+                        <input type="number" id="quantity" min="1" max="10" value="1" oninput="updatePrice()">
+                        <span class="error-msg">Please enter a quantity between 1 and 10.</span>
+                    </div>
+
+                    <!-- auto price calculation -->
+                    <div class="price-summary">
+                        <div class="price-row">
+                            <span id="summary-type">—</span>
+                            <span>$18 per ticket</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Quantity</span>
+                            <span id="summary-qty">1</span>
+                        </div>
+                        <div class="price-total">
+                            <span>Total</span>
+                            <span id="summary-total">$18.00</span>
+                        </div>
+                    </div>
+
+                    <!-- email -->
+                    <div class="form-group" id="group-email">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" placeholder="you@example.com">
+                        <span class="error-msg">Please enter a valid email address.</span>
+                    </div>
+
+                    <!-- zip code (optional) -->
+                    <div class="form-group" id="group-zip">
+                        <label for="zip">Zip Code <span class="optional-tag">optional</span></label>
+                        <input type="text" id="zip" placeholder="e.g. 15213" maxlength="5">
+                        <span class="error-msg">Zip code must be 5 digits.</span>
+                    </div>
+
+                    <!-- mailing list -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="mailing-list">
+                        <label for="mailing-list">Join our mailing list for exhibition updates</label>
+                    </div>
+
+                    <!-- place order button -->
+                    <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>monomuseum@gmail.com &nbsp;·&nbsp; (412) 555-0192</p>
+            <p>&copy; MonoMuse. All rights reserved. <span id="copyYear"></span></p>
+        </footer>
+
+    </div>
+
+    <script>
+        function updatePrice() {
+            var qty = parseInt(document.getElementById("quantity").value) || 1;
+            var type = document.getElementById("ticket-type").value;
+            var total = qty * 18;
+            document.getElementById("summary-qty").textContent = qty;
+            document.getElementById("summary-total").textContent = "$" + total.toFixed(2);
+            document.getElementById("summary-type").textContent = type ? type : "—";
+        }
+
+        function placeOrder() {
+            var valid = true;
+
+            // clear previous errors
+            document.querySelectorAll(".form-group").forEach(function(g) {
+                g.classList.remove("error");
+            });
+
+            // validate date
+            var date = document.getElementById("visit-date").value;
+            if (!date) {
+                document.getElementById("group-date").classList.add("error");
+                valid = false;
+            }
+
+            // validate ticket type
+            var type = document.getElementById("ticket-type").value;
+            if (!type) {
+                document.getElementById("group-type").classList.add("error");
+                valid = false;
+            }
+
+            // validate quantity
+            var qty = parseInt(document.getElementById("quantity").value);
+            if (!qty || qty < 1 || qty > 10) {
+                document.getElementById("group-quantity").classList.add("error");
+                valid = false;
+            }
+
+            // validate email
+            var email = document.getElementById("email").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById("group-email").classList.add("error");
+                valid = false;
+            }
+
+            // validate zip 
+            var zip = document.getElementById("zip").value;
+            if (zip && !/^\d{5}$/.test(zip)) {
+                document.getElementById("group-zip").classList.add("error");
+                valid = false;
+            }
+
+            // if all valid, redirect to confirmation
+            if (valid) {
+                var total = qty * 18;
+                window.location.href = "confirmation.html" +
+                    "?date=" + encodeURIComponent(date) +
+                    "&type=" + encodeURIComponent(type) +
+                    "&qty=" + qty +
+                    "&total=" + total.toFixed(2) +
+                    "&email=" + encodeURIComponent(email);
+            }
+        }
+    </script>
+
+</body>
+</html>

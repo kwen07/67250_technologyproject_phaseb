@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katie Wen">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse website redesign project">
+    <title>Explore — MonoMuse</title>
+</head>
+<body onload="addYear()">
+    <div class="container">
+
+        <header class="header">
+            <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+        </header>
+
+        <nav class="nav_bar">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="buytickets.html">Buy Tickets</a>
+                <a href="membership.html">Membership</a>
+            </div>
+        </nav>
+
+        <main class="main">
+            <h2>Explore</h2>
+
+            <!-- image on left, text on right -->
+            <div style="display: flex; gap: 32px; align-items: flex-start; margin-bottom: 32px;">
+
+                <img src="../static/museum.jpg" alt="Inside MonoMuse museum gallery with artwork on walls" style="width: 45%; height: auto;">
+
+                <div>
+                    <p>MonoMuse is a contemporary museum dedicated to the intersection 
+                    of art, technology, and human creativity. We believe that art 
+                    and technology together can transform how we see the world.</p>
+
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to inspire curiosity and creativity by bringing 
+                    together innovative artists and cutting-edge technology in an 
+                    accessible, welcoming space for everyone.</p>
+
+                    <h3>Who We Serve</h3>
+                    <p>MonoMuse welcomes visitors of all ages and backgrounds — from 
+                    students and families to artists, researchers, and technology 
+                    enthusiasts.</p>
+
+                    <h3>Our History</h3>
+                    <p>Founded in 2005, MonoMuse has grown from a small gallery into 
+                    a world-class institution. Here are some of our key milestones:</p>
+                    <ul>
+                        <li>2005 — MonoMuse founded in Pittsburgh, PA</li>
+                        <li>2010 — Opened our first permanent digital art wing</li>
+                        <li>2015 — Launched our interactive installations program</li>
+                        <li>2020 — Introduced virtual tours during the pandemic</li>
+                        <li>2024 — Expanded to a new 50,000 sq ft facility</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <h2>Hours & Admission</h2>
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+                <tr>
+                    <td>Monday – Friday</td>
+                    <td>9:00 AM – 6:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>9:00 AM – 8:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>10:00 AM – 5:00 PM</td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>Ticket Type</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>General</td>
+                    <td>$18</td>
+                </tr>
+                <tr>
+                    <td>Student</td>
+                    <td>$18</td>
+                </tr>
+                <tr>
+                    <td>Member</td>
+                    <td>$18</td>
+                </tr>
+                <tr>
+                    <td>Child (under 18)</td>
+                    <td>Free</td>
+                </tr>
+            </table>
+
+            <h2>Location</h2>
+            <p>4400 Forbes Avenue, Pittsburgh, PA 15213</p>
+            <p>Phone: (412) 555-0192</p>
+            <p>Email: monomuseum@gmail.com</p>
+
+            <h2>Find Us</h2>
+            <div id="map"></div>
+
+        </main>
+
+        <footer class="footer">
+            <p>monomuseum@gmail.com &nbsp;·&nbsp; (412) 555-0192</p>
+            <p>&copy; MonoMuse. All rights reserved. <span id="copyYear"></span></p>
+        </footer>
+
+    </div>
+
+    <script>
+        if (document.getElementById("map")) {
+            var map = L.map('map').setView([40.4433, -79.9436], 15);
+            
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+
+            L.marker([40.4433, -79.9436]).addTo(map)
+                .bindPopup('MonoMuse Museum — Pittsburgh, PA')
+                .openPopup();
+        }
+    </script>
+
+</body>
+</html>

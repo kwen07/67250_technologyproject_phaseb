@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katie Wen">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse Membership and Donations">
+    <title>Membership — MonoMuse</title>
+</head>
+<body onload="addYear()">
+    <div class="container">
+
+        <header class="header">
+            <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+        </header>
+
+        <nav class="nav_bar">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="buytickets.html">Buy Tickets</a>
+                <a href="membership.html">Membership</a>
+            </div>
+        </nav>
+
+        <main class="main">
+
+            <h2>Membership & Donations</h2>
+            <p>Support MonoMuse and enjoy exclusive benefits year-round. Your membership helps fund our exhibitions, education programs, and community events.</p>
+
+            <h3>Membership Options</h3>
+
+            <table>
+                <tr>
+                    <th>Membership Type</th>
+                    <th>Annual Price</th>
+                    <th>Benefits</th>
+                </tr>
+                <tr>
+                    <td>Student</td>
+                    <td>$35 / year</td>
+                    <td>Free unlimited admission, 10% shop discount, member newsletter</td>
+                </tr>
+                <tr>
+                    <td>Individual</td>
+                    <td>$75 / year</td>
+                    <td>Free unlimited admission, 15% shop discount, exclusive member events, 1 guest pass</td>
+                </tr>
+                <tr>
+                    <td>Family</td>
+                    <td>$120 / year</td>
+                    <td>Admission for 2 adults and children, 20% shop discount, exclusive events, 2 guest passes</td>
+                </tr>
+            </table>
+
+            <p>To become a member, please email us at monomuseum@gmail.com or call (412) 555-0192.</p>
+
+            <h3>Make a Donation</h3>
+            <p>Every donation directly supports our exhibitions and community programs. No amount is too small.</p>
+
+            <p>Select a donation amount:</p>
+            <button onclick="alert('Thank you for donating $10 to MonoMuse!')">$10</button>
+            <button onclick="alert('Thank you for donating $25 to MonoMuse!')">$25</button>
+            <button onclick="alert('Thank you for donating $50 to MonoMuse!')">$50</button>
+            <button onclick="alert('Thank you for donating $100 to MonoMuse!')">$100</button>
+
+        </main>
+
+        <footer class="footer">
+            <p>monomuseum@gmail.com &nbsp;·&nbsp; (412) 555-0192</p>
+            <p>&copy; MonoMuse. All rights reserved. <span id="copyYear"></span></p>
+        </footer>
+
+    </div>
+</body>
+</html>

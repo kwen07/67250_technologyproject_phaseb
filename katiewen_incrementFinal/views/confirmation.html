@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katie Wen">
+    <title>Order Confirmed — MonoMuse</title>
+</head>
+<body onload="loadConfirmation(); addYear();">
+    <div class="container">
+
+        <header class="header">
+            <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+        </header>
+
+        <nav class="nav_bar">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="buytickets.html">Buy Tickets</a>
+                <a href="membership.html">Membership</a>
+            </div>
+        </nav>
+
+        <main class="main">
+            <div class="confirmation-box">
+
+                <div class="check-icon">✓</div>
+                <h2>Order Confirmed</h2>
+                <p class="subtitle">Thank you! Your tickets have been reserved.<br>A confirmation will be sent to your email.</p>
+
+                <div class="order-details">
+                    <div class="order-row">
+                        <span class="row-label">Visit Date</span>
+                        <span class="row-value" id="conf-date">—</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="row-label">Ticket Type</span>
+                        <span class="row-value" id="conf-type">—</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="row-label">Quantity</span>
+                        <span class="row-value" id="conf-qty">—</span>
+                    </div>
+                    <div class="order-row">
+                        <span class="row-label">Email</span>
+                        <span class="row-value" id="conf-email">—</span>
+                    </div>
+                    <div class="order-row">
+                        <span>Total Charged</span>
+                        <span id="conf-total">—</span>
+                    </div>
+                </div>
+
+                <a href="buytickets.html" class="back-link">← Buy more tickets</a>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>monomuseum@gmail.com &nbsp;·&nbsp; (412) 555-0192</p>
+            <p>&copy; MonoMuse. All rights reserved. <span id="copyYear"></span></p>
+        </footer>
+
+    </div>
+
+    <script>
+        function loadConfirmation() {
+            var params = new URLSearchParams(window.location.search);
+
+            var date = params.get("date");
+            var type = params.get("type");
+            var qty = params.get("qty");
+            var total = params.get("total");
+            var email = params.get("email");
+
+            if (date) {
+                var formatted = new Date(date + "T00:00:00").toLocaleDateString("en-US", {
+                    weekday: "long", year: "numeric", month: "long", day: "numeric"
+                });
+                document.getElementById("conf-date").textContent = formatted;
+            }
+            if (type) document.getElementById("conf-type").textContent = type;
+            if (qty) document.getElementById("conf-qty").textContent = qty + (qty == 1 ? " ticket" : " tickets");
+            if (total) document.getElementById("conf-total").textContent = "$" + parseFloat(total).toFixed(2);
+            if (email) document.getElementById("conf-email").textContent = email;
+        }
+    </script>
+
+</body>
+</html>

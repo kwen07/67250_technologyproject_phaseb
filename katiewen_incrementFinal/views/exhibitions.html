@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Katie Wen">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse website redesign project">
+    <title>Exhibitions — MonoMuse</title>
+</head>
+<body onload="addYear()">
+
+    <div class="container">
+
+        <header class="header">
+            <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+        </header>
+
+        <nav class="nav_bar">
+            <button class="hamburger" onclick="toggleNav()">&#9776;</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="explore.html">Explore</a>
+                <a href="exhibitions.html">Exhibitions</a>
+                <a href="buytickets.html">Buy Tickets</a>
+                <a href="membership.html">Membership</a>
+            </div>
+        </nav>
+
+        <main class="main">
+            <h2>Exhibitions</h2>
+
+            <!-- video section with description on the left -->
+            <div style="display: flex; gap: 32px; align-items: flex-start; margin-bottom: 40px;">
+                <div style="flex: 1;">
+                    <h3>Caravaggio: Master of Light</h3>
+                    <p>Explore the dramatic world of Caravaggio, the revolutionary 17th-century master whose bold use of light and shadow transformed Western art. At MonoMuse, we bring his traditional works into the modern age — using projection mapping, interactive displays, and digital analysis to reveal hidden details in his paintings that the naked eye cannot see. Experience the old masters through the lens of technology.</p>
+                    <a class="cta" href="buytickets.html">Book Tickets</a>
+                </div>
+                <div style="flex: 1;">
+                    <iframe
+                        src="https://www.youtube.com/embed/R1lcb_7gj5k?si=pWUNykGqWbWGsMeD"
+                        title="Caravaggio Master of Light exhibition video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        style="width: 100%; height: 280px; margin-top: 0;">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- exhibtion 1 -->
+            <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px;">
+                <img
+                    src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&q=80"
+                    alt="Digital art installation with glowing screens"
+                    style="width: 200px; height: 140px; object-fit: cover; border-radius: 8px;">
+                <div>
+                    <h3>The Digital Frontier</h3>
+                    <p>Step into the future with our flagship exhibition exploring how 
+                    artificial intelligence and machine learning are reshaping the 
+                    boundaries of creative expression. Featuring works from over 
+                    20 international artists, The Digital Frontier challenges visitors 
+                    to question what it means to create in the age of machines.</p>
+                </div>
+            </div>
+
+            <!-- exhibition 2 -->
+            <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px;">
+                <img
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80"
+                    alt="Forest landscape representing nature data installation"
+                    style="width: 200px; height: 140px; object-fit: cover; border-radius: 8px;">
+                <div>
+                    <h3>Echoes of Nature</h3>
+                    <p>Echoes of Nature is an immersive installation that blends 
+                    environmental data with generative art. Sensors placed in forests 
+                    and oceans around the world feed live data into visual displays, 
+                    creating a constantly evolving portrait of our planet. A meditative 
+                    and thought-provoking experience for all ages.</p>
+                </div>
+            </div>
+
+            <!-- exhibition 3 -->
+            <div style="display: flex; gap: 24px; align-items: flex-start; margin-bottom: 32px;">
+                <img
+                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=300&q=80"
+                    alt="Robot and human interaction representing Human Machine exhibition"
+                    style="width: 200px; height: 140px; object-fit: cover; border-radius: 8px;">
+                <div>
+                    <h3>Human/Machine</h3>
+                    <p>Human/Machine examines the evolving relationship between people 
+                    and technology through sculpture, photography, and interactive 
+                    digital pieces. Visitors are invited to participate in live 
+                    demonstrations and add their own mark to collaborative artworks 
+                    throughout the gallery.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <p>monomuseum@gmail.com &nbsp;·&nbsp; (412) 555-0192</p>
+            <p>&copy; MonoMuse. All rights reserved. <span id="copyYear"></span></p>
+        </footer>
+
+    </div>
+</body>
+</html>
